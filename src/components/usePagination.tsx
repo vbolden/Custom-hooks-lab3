@@ -7,7 +7,7 @@ type UsePaginationProps = {
 }
 
 function usePagination({
-    totalItems = 100,
+    totalItems = 115,
     itemsPerPage = 10,
     initialPage = 1,
 }: UsePaginationProps) {
