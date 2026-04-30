@@ -39,7 +39,9 @@ function Pagination() {
 
             <div className="items-list">
                 <ol>
-                    <li>Item 1</li>
+                    {currentItems.map((item) => (
+                        <li>{item}</li>
+                    ))}
                 </ol>
             </div>
             <div className="page-controls">
