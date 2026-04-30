@@ -27,14 +27,14 @@ function Pagination() {
     return (
         <div className="container">
             <div className="items">
-                <select>
+                <select onChange={(e) => setItemsPerPage(Number(e.target.value))} >
                     <option value="5">5</option>
                     <option value="10">10</option>
                     <option value="15">15</option>
                     <option value="20">20</option>
                 </select>
 
-                <p>Total Items: <em>115</em></p>
+                <p>Total Items: <em>{items.length}</em></p>
             </div>
 
             <div className="items-list">
