@@ -6,7 +6,11 @@ type UsePaginationProps = {
     initialPage?: number;
 }
 
-function usePagination({totalItems, itemsPerPage = 10, initialPage = 1}: UsePaginationProps) {
+function usePagination({
+    totalItems,
+    itemsPerPage = 10,
+    initialPage = 1,
+}: UsePaginationProps) {
     const [currentPage, setCurrentPage] = useState(initialPage);
 }
 
