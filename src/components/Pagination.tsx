@@ -27,14 +27,16 @@ function Pagination() {
     return (
         <div className="container">
             <div className="items">
-                <select onChange={(e) => setItemsPerPage(Number(e.target.value))} >
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                    <option value="20">20</option>
-                </select>
+                <label>Items Per Page
+                    <select value={itemsPerPage} onChange={(e) => setItemsPerPage(Number(e.target.value))} >
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                </label>
 
-                <p>Total Items: <em>{items.length}</em></p>
+                <span>Total Items: <em>{items.length}</em></span>
             </div>
 
             <div className="items-list">
@@ -48,8 +50,8 @@ function Pagination() {
                 <button onClick={prevPage} >Previous</button>
                 <label htmlFor="">
                     Page
-                    <input type="number" value={1} />
-                    of
+                    <input type="number" value={1} id="page-select" />
+                    of {totalPages}
                 </label>
                 <button onClick={nextPage} >Next</button>
             </div>
