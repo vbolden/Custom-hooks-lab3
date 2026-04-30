@@ -36,7 +36,7 @@ function usePagination({
         setCurrentPage(page)
     }
 
-    return {};
+    return {currentPage, totalPages, startIndex, endIndex, currentPageItems, nextPage, prevPage, selectPage};
 }
 
 export default usePagination;
