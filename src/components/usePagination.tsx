@@ -32,6 +32,10 @@ function usePagination({
         setCurrentPage(prev => prev + 1)
     }
 
+    const selectPage = (page: number) => {
+        setCurrentPage(page)
+    }
+
     return {};
 }
 
