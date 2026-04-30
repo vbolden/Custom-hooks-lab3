@@ -19,10 +19,6 @@ function usePagination({
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage -1;
 
-    // ITEMS ON CURRENT PAGE (MAINLY FOR LAST PAGE)
-    const currentPageItems = Math.min(itemsPerPage, totalItems - startIndex);
-
-
     // NAVIGATION FUNCTIONS
     const nextPage = () => {
         setCurrentPage(prev => Math.min(prev + 1, totalPages))
@@ -37,7 +33,7 @@ function usePagination({
         setCurrentPage(safePage);
     }
 
-    return {currentPage, totalPages, startIndex, endIndex, currentPageItems, nextPage, prevPage, selectPage};
+    return {currentPage, totalPages, startIndex, endIndex, nextPage, prevPage, selectPage};
 }
 
 export default usePagination;
