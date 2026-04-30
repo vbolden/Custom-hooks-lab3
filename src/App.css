@@ -59,6 +59,40 @@ h2 {
     color: #fff;
 }
 
+.page-controls button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
 #page-select {
     width: 35px;
+}
+
+.page-info {
+    padding: 0 10px;
+    text-align: center;
+}
+
+.page-numbers {
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    gap: 1.5px;
+    margin-bottom: 10px;
+}
+
+.page-numbers button {
+    padding: 10px 5px;
+    font-size: 14px;
+    border: 1px solid #212121;
+    border-radius: 3px;
+    width: 30px;
+    color: #212121;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.page-numbers button:hover {
+    background-color: #414140;
 }
