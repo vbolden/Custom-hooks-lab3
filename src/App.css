@@ -1,0 +1,53 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.pagination {
+    width: 700px;
+    height: max-content;
+    background-color: #ABA9BF;
+    margin: 0 auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    margin-top: 20px;
+}
+
+h2 {
+    margin: 0;
+    text-align: center;
+}
+
+.items {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.items-list {
+    padding: 0 20px;
+    margin: 10px 0;
+}
+
+.page-controls {
+    display: flex;
+    justify-content: center;
+    /* justify-content: space-around; */
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.page-controls button {
+    padding: 8px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    width: 100px;
+}
+
+#page-select {
+    width: 35px;
+}
