@@ -75,7 +75,8 @@ function Pagination() {
                         onClick={() => selectPage(page)}
                         disabled={currentPage === page}
                         style={{
-                            fontWeight: currentPage === page ? "bold" : "normal"
+                            fontWeight: currentPage === page ? "bold" : "normal",
+                            backgroundColor: currentPage === page ? "white" : "transparent"
                         }} >{page}</button>
                 ))}
             </div>
