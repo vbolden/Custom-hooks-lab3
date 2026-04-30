@@ -25,11 +25,11 @@ function usePagination({
 
     // NAVIGATION FUNCTIONS
     const nextPage = () => {
-        setCurrentPage(prev => prev + 1)
+        setCurrentPage(prev => Math.min(prev + 1, totalPages))
     }
 
     const prevPage = () => {
-        setCurrentPage(prev => prev + 1)
+        setCurrentPage(prev => Math.max(prev - 1, 1))
     }
 
     const selectPage = (page: number) => {
