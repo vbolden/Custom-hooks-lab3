@@ -1,12 +1,30 @@
+import { useState } from "react";
 import usePagination from "./usePagination";
+
+
 
 function Pagination() {
     const items = [];
-    for(let i = 1; i < 116; i++) {
+    for (let i = 1; i < 116; i++) {
         items.push("Item " + i);
     }
 
-    return(
+    const [itemsPerPage, setItemsPerPage] = useState(10);
+    const {
+        currentPage,
+        totalPages,
+        startIndex,
+        endIndex,
+        currentPageItems,
+        nextPage,
+        prevPage,
+        selectPage
+    } = usePagination({ totalItems: items.length, itemsPerPage, initialPage: 1 });
+
+    const currentItems = items.slice(startIndex, endIndex + 1);
+
+
+    return (
         <div className="container">
             <div className="items">
                 <select>
@@ -29,7 +47,7 @@ function Pagination() {
                 <label htmlFor="">
                     Page
                     <input type="number" value={1} />
-                    of 
+                    of
                 </label>
                 <button>Next</button>
             </div>
