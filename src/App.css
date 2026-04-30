@@ -13,6 +13,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     padding: 10px;
     margin-top: 20px;
+    color: #212121;
 }
 
 h2 {
@@ -35,6 +36,7 @@ h2 {
 .page-controls {
     display: flex;
     justify-content: center;
+    align-items: center;
     /* justify-content: space-around; */
     gap: 15px;
     margin: 15px 0;
@@ -42,10 +44,18 @@ h2 {
 
 .page-controls button {
     padding: 8px 20px;
-    font-weight: bold;
-    border: none;
+    font-size: 16px;
+    border: 1px solid #212121;
     border-radius: 3px;
     width: 100px;
+    color: #212121;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.page-controls button:hover {
+    background-color: #414140;
+    color: #fff;
 }
 
 #page-select {
