@@ -66,7 +66,11 @@ function Pagination() {
             </div>
             <div className="page-numbers">
                 {pages.map((page) => (
-                    <button>{page}</button>
+                    <button 
+                    onClick={() => selectPage(page)}
+                    style={{
+                        fontWeight: currentPage === page ? "bold" : "normal"
+                    }} >{page}</button>
                 ))}
             </div>
 
