@@ -62,12 +62,13 @@ function Pagination() {
                 <button onClick={nextPage} >Next</button>
             </div>
             <div className="page-info">
-                <p>Showing 1-10 of 115 items</p>
+                <p>Showing {startIndex + 1}-{endIndex + 1} of {items.length} items</p>
             </div>
             <div className="page-numbers">
                 {pages.map((page) => (
                     <button 
                     onClick={() => selectPage(page)}
+                    disabled={currentPage === page}
                     style={{
                         fontWeight: currentPage === page ? "bold" : "normal"
                     }} >{page}</button>
