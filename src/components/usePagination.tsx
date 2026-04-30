@@ -33,7 +33,8 @@ function usePagination({
     }
 
     const selectPage = (page: number) => {
-        setCurrentPage(page)
+        const safePage = Math.max(1, Math.min(page, totalPages));
+        setCurrentPage(safePage);
     }
 
     return {currentPage, totalPages, startIndex, endIndex, currentPageItems, nextPage, prevPage, selectPage};
