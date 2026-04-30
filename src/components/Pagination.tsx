@@ -1,11 +1,11 @@
-// import usePagination from "./usePagination";
+import usePagination from "./usePagination";
 
 function Pagination() {
     const items = [];
-    for(let i = 1; i < 101; i++) {
+    for(let i = 1; i < 116; i++) {
         items.push("Item " + i);
     }
-    
+
     return(
         <div className="container">
             <div className="items">
@@ -16,13 +16,34 @@ function Pagination() {
                     <option value="20">20</option>
                 </select>
 
-                <p>Total Items: <em>120</em></p>
+                <p>Total Items: <em>115</em></p>
             </div>
 
-            <div>
+            <div className="items-list">
                 <ol>
                     <li>Item 1</li>
                 </ol>
+            </div>
+            <div className="page-controls">
+                <button>Previous</button>
+                <label htmlFor="">
+                    Page
+                    <input type="number" value={1} />
+                    of 
+                </label>
+                <button>Next</button>
+            </div>
+            <div className="page-info">
+                <p>Showing 1-10 of 115 items</p>
+            </div>
+            <div className="page-numbers">
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+                <button>5</button>
+                <span>...</span>
+                <button>12</button>
             </div>
 
         </div>
