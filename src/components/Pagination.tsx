@@ -65,13 +65,9 @@ function Pagination() {
                 <p>Showing 1-10 of 115 items</p>
             </div>
             <div className="page-numbers">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-                <span>...</span>
-                <button>12</button>
+                {pages.map((page) => (
+                    <button>{page}</button>
+                ))}
             </div>
 
         </div>
