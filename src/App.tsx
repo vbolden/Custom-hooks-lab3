@@ -1,5 +1,6 @@
 import './App.css'
-import Items from './components/Items.tsx'
+import Pagination from './components/Pagination';
+// import usePagination from "./usePagination";
 
 function App() {
  
@@ -7,7 +8,7 @@ function App() {
     <div>
       <div className='pagination'>
         <h2>Pagination Demo</h2>
-        <Items />
+        <Pagination />
       </div>
 
       <div className="debounce">
