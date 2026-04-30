@@ -45,13 +45,13 @@ function Pagination() {
                 </ol>
             </div>
             <div className="page-controls">
-                <button>Previous</button>
+                <button onClick={prevPage} >Previous</button>
                 <label htmlFor="">
                     Page
                     <input type="number" value={1} />
                     of
                 </label>
-                <button>Next</button>
+                <button onClick={nextPage} >Next</button>
             </div>
             <div className="page-info">
                 <p>Showing 1-10 of 115 items</p>
