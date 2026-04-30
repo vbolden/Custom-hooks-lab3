@@ -23,6 +23,12 @@ function Pagination() {
 
     const currentItems = items.slice(startIndex, endIndex + 1);
 
+    // PAGE ARRAY FOR PAGE BUTTONS
+    const pages = [];
+    for(let i = 1; i < totalPages; i++) {
+        pages.push(i);
+    } 
+
 
     return (
         <div className="container">
