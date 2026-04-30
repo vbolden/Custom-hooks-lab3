@@ -25,10 +25,9 @@ function Pagination() {
 
     // PAGE ARRAY FOR PAGE BUTTONS
     const pages = [];
-    for(let i = 1; i < totalPages; i++) {
+    for (let i = 1; i < totalPages; i++) {
         pages.push(i);
-    } 
-
+    }
 
     return (
         <div className="container">
@@ -53,25 +52,32 @@ function Pagination() {
                 </ol>
             </div>
             <div className="page-controls">
-                <button onClick={prevPage} >Previous</button>
+                <button onClick={prevPage}
+                    disabled={currentPage === 1}
+                >Previous</button>
                 <label htmlFor="">
                     Page
-                    <input type="number" value={1} id="page-select" />
+                    <input 
+                    type="number" 
+                    value={currentPage} 
+                    id="page-select"
+                    onChange={(e) => selectPage(Number(e.target.value))} />
                     of {totalPages}
                 </label>
-                <button onClick={nextPage} >Next</button>
+                <button onClick={nextPage}
+                    disabled={currentPage === totalPages} >Next</button>
             </div>
             <div className="page-info">
                 <p>Showing {startIndex + 1}-{endIndex + 1} of {items.length} items</p>
             </div>
             <div className="page-numbers">
                 {pages.map((page) => (
-                    <button 
-                    onClick={() => selectPage(page)}
-                    disabled={currentPage === page}
-                    style={{
-                        fontWeight: currentPage === page ? "bold" : "normal"
-                    }} >{page}</button>
+                    <button
+                        onClick={() => selectPage(page)}
+                        disabled={currentPage === page}
+                        style={{
+                            fontWeight: currentPage === page ? "bold" : "normal"
+                        }} >{page}</button>
                 ))}
             </div>
 
