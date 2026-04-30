@@ -15,7 +15,6 @@ function Pagination() {
         totalPages,
         startIndex,
         endIndex,
-        currentPageItems,
         nextPage,
         prevPage,
         selectPage
@@ -25,7 +24,7 @@ function Pagination() {
 
     // PAGE ARRAY FOR PAGE BUTTONS
     const pages = [];
-    for (let i = 1; i < totalPages; i++) {
+    for (let i = 1; i <= totalPages; i++) {
         pages.push(i);
     }
 
