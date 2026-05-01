@@ -29,8 +29,12 @@ function Debounce() {
             <p>Debounced Value (after {delay}ms): {debounceValue}</p>
 
             <p>Simulated Search Results:</p>
-            <span>{debounceValue ? "Searching..." : "Type to see results"}</span>
-            
+            <span>
+                {debounceValue
+                    ? `Result for "${debounceValue}"`
+                    : "Type to see results"}
+            </span>
+
         </div>
     )
 }
