@@ -1,6 +1,6 @@
 import './App.css'
 import Pagination from './components/Pagination';
-// import usePagination from "./usePagination";
+import Debounce from './components/Debounce';
 
 function App() {
  
@@ -12,7 +12,8 @@ function App() {
       </div>
 
       <div className="debounce">
-        <h2>Debounce</h2>
+        <h2>Debounce Search Demo</h2>
+        <Debounce />
       </div>
     </div>
   )
