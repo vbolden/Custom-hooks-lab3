@@ -1,75 +1,59 @@
-# React + TypeScript + Vite
+# Lab Outline
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### usePagination Hook
+Objective: Create a hook to manage pagination logic for a list of items.
 
-Currently, two official plugins are available:
+Functionality:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Inputs:
+    - totalItems: The total number of items to be paginated.
+    - itemsPerPage: The number of items to display per page (default to 10).
+    - initialPage: The page to start on (default to 1).
 
-## React Compiler
+- Return Values (Object):
+    - currentPage: The current active page number.
+    - totalPages: The total number of pages calculated based on totalItems and itemsPerPage.
+    - startIndex: The starting index of items for the current page (0-based).
+    - endIndex: The ending index of items for the current page (0-based).
+    - itemsOnCurrentPage: The actual number of items on the current page (useful for the last page).
+    - setPage(pageNumber): A function to jump to a specific page number.
+    - nextPage(): A function to go to the next page.
+    - prevPage(): A function to go to the previous page.
+    - canNextPage: Boolean indicating if there is a next page.
+    - canPrevPage: Boolean indicating if there is a previous page.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- Implementation Details:
+    - Calculate totalPages correctly (e.g., using Math.ceil).
+    - Ensure currentPage does not go below 1 or above totalPages.
+    - startIndex and endIndex should be calculated based on the currentPage and itemsPerPage.
+    - itemsOnCurrentPage should correctly reflect the count for the last page if it’s not full.
 
-Note: This will impact Vite dev & build performances.
+- Example Usage Component (PaginationDemo.tsx):
+    - Create a component that uses your usePagination hook.
+    - Simulate a list of items (e.g., an array of 100 numbers or strings).
+    - Display the current page number, total pages, and the slice of items for the current page.
+    - Include buttons for “Previous”, “Next”, and jumping to specific page numbers (if you wish to demonstrate setPage more thoroughly).
+    - Disable Previous/Next buttons when canPrevPage or canNextPage is false.
 
-## Expanding the ESLint configuration
+### useDebounce Hook
+Objective: Create a hook to debounce a rapidly changing value.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Functionality:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Inputs:
+    - value: The value to debounce (e.g., a search string from an input field).
+    - delay: The debounce delay in milliseconds (default to 500ms).
+    - Return Value:
+    - debouncedValue: The value after the debounce delay has passed without value changing.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Implementation Details:  
+    - Use useState to store the debouncedValue.
+    - Use useEffect to set up a timer (setTimeout) whenever the input value or delay changes.
+    - The effect should clear the timer (using clearTimeout) if value or delay changes before the timer fires (this is the core of debouncing).
+    - When the timer finally fires, update the debouncedValue state.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Example Usage Component (DebounceSearchDemo.tsx):
+    - Create a component with an input field.
+    - As the user types into the input, use the useDebounce hook to get the debounced version of the input’s value.
+    - Display both the current input value and the debounced value.
+    - You can simulate an API call or filtering action whenever the debouncedValue changes by logging to the console (e.g., “Searching for: [debouncedValue]”).
