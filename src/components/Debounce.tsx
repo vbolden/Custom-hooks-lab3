@@ -15,7 +15,16 @@ function Debounce() {
 
     return (
         <div>
-            <p>Debounce Delay (ms): <input type="number" step={100} value={delay} onChange={(e) => setDelay(Number(e.target.value))} /> </p>
+            <p>Debounce Delay (ms):
+                <input
+                    type="number"
+                    step={100}
+                    min={0}
+                    value={delay}
+                    onChange={(e) => setDelay(Number(e.target.value))}
+                    onKeyDown={(e) => e.preventDefault()}
+                     />
+            </p>
 
             <input
                 type="text"
