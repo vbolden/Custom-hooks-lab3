@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import useDebounce from './useDebounce.tsx'
 
 function Debounce() {
-    const [input, setInput] = useState("")
+    const [input, setInput] = useState("");
+    const [delay, setDelay] = useState(500);
 
-    const debounceValue = useDebounce(input, 500);
+    const debounceValue = useDebounce(input, delay);
 
     useEffect(() => {
         if (debounceValue) {
@@ -14,7 +15,7 @@ function Debounce() {
 
     return (
         <div>
-            <p>Debounce Delay (ms): <input type="number" step={100} /> </p>
+            <p>Debounce Delay (ms): <input type="number" step={100} value={delay} onChange={(e) => setDelay(Number(e.target.value))} /> </p>
 
             <input
                 type="text"
@@ -25,9 +26,11 @@ function Debounce() {
             />
 
             <p>Current Input: {input}</p>
-            <p>Debounced Value (after 600ms): {input}</p>
+            <p>Debounced Value (after {delay}ms): {debounceValue}</p>
+
+            <p>Simulated Search Results:</p>
+            <span>{debounceValue ? "Searching..." : "Type to see results"}</span>
             
-            <p>Simulated Search Results: </p>
         </div>
     )
 }
