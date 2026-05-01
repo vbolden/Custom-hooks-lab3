@@ -2,6 +2,16 @@ import { useState, useEffect } from "react";
 import  useDebounce  from './useDebounce.tsx'
 
 function Debounce() {
+    const [input, setInput] = useState("")
+
+    const debounceValue = useDebounce(input, 500);
+
+    useEffect(() => {
+        if(debounceValue) {
+
+        }
+    })
+
     return (
         <div>
             <p>Debounce Delay (ms): </p>
