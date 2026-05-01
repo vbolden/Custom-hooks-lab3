@@ -1,3 +1,6 @@
+import { useState, useEffect } from "react";
+import  useDebounce  from './useDebounce.tsx'
+
 function Debounce() {
     return (
         <div>
