@@ -8,9 +8,9 @@ function Debounce() {
 
     useEffect(() => {
         if (debounceValue) {
-
+            console.log("Searching for:", debounceValue);
         }
-    })
+    }, [debounceValue])
 
     return (
         <div>
@@ -23,11 +23,11 @@ function Debounce() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
             />
-            
+
             <p>Current Input: {input}</p>
-            <p>Debounced Value (after 600ms):</p>
+            <p>Debounced Value (after 600ms): {input}</p>
+            
             <p>Simulated Search Results: </p>
-            <p>Type to see results.</p>
         </div>
     )
 }
